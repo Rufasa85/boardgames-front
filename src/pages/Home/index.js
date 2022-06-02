@@ -14,7 +14,7 @@ export default function Home() {
 
   return (
     <div className="Home">
-      {users.map(user=><UserCard key={user.id} username={user.username} Games={user.Games}/>)}
+      {users.map(user=><UserCard key={user.id} username={user.username} Games={user.Games} id={user.id}/>)}
     </div>
   )
 }

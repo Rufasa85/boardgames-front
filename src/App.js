@@ -59,7 +59,7 @@ function App() {
    <hr/>
    <Routes>
      <Route path="/" element={<Home/>}/>
-     <Route path="/profile/:id" element={<Profile/>}/>
+     <Route path="/profile/:id" element={<Profile userId={userId} token={token}/>}/>
      <Route path="/game/:id" element={<Game/>}/>
      <Route path="/login" element={<Login login={handleLoginSubmit} signup={handleSignupSubmit}/>}/>
    </Routes>
