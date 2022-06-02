@@ -5,6 +5,7 @@ import Profile from "./pages/Profile";
 import Game from "./pages/Game";
 import Login from "./pages/Login";
 import API from "./utils/API"
+import NavBar from "./components/NavBar";
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userId, setUserId] = useState(null);
@@ -26,6 +27,9 @@ function App() {
           setUserId(null)
         }
       }) 
+    }else {
+      setIsLoggedIn(false);
+      setUserId(null)
     }
   },[token])
   const handleLoginSubmit=loginData =>{
@@ -45,9 +49,13 @@ function App() {
       }
     })
   }
+  const logout = ()=>{
+    setToken(null);
+    localStorage.removeItem("token")
+  }
   return (
    <BrowserRouter>
-   <h1>Navbar</h1>
+   <NavBar isLoggedIn={isLoggedIn} userId={userId} logout={logout}/>
    <hr/>
    <Routes>
      <Route path="/" element={<Home/>}/>
